@@ -1,2 +1,3 @@
 # meta-mgi
-Yocto meta layer intended for Raspberry Pi projects. 
+
+My Yocto Meta layer

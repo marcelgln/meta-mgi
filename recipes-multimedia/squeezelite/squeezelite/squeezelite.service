@@ -1,0 +1,15 @@
+[Unit]
+Description=Squeezelite Player Daemon
+Wants=network.target sound.target
+After=network.target sound.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/bin/squeezelite -n %H
+User=squeeze
+Group=squeeze
+
+[Install]
+WantedBy=multi-user.target

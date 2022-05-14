@@ -1,0 +1,17 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          wpa-fallback-cfg
+# Required-Start:    
+# Required-Stop: 
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: Configures IP for wpa fallback AP.
+# Description:
+### END INIT INFO
+
+DESC="wpa-ap-fallback-cfg"
+
+test "$VERBOSE" != no && echo "Check for and config of fallback access point"
+/usr/bin/wpa-ap-fallback-cfg.sh
+
+exit 0

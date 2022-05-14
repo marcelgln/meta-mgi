@@ -1,0 +1,29 @@
+#
+# WPA supplicant definition which does a fallback to AP mode when the connection fails.
+# Add the wifi-ap-falback recipe to the image to enable the static ip configuration when the AP 
+# is started. 
+#
+
+ctrl_interface=/var/run/wpa_supplicant
+ctrl_interface_group=0
+update_config=1
+ap_scan=1
+
+### auto hotspot ###      	# has to be the first network section!                                                                                  
+network={
+    priority=0            	# Lowest priority, so wpa_supplicant prefers the other networks below 
+    ssid="<AP_SSID>"      	# Access point's name                                                            
+    mode=2                                                                       
+    key_mgmt=WPA-PSK                                                             
+    psk="<AP_PSK>"   	  	# Access point's password                                    
+    frequency=2462                                                              
+    id_str="acces_point" 	# Should be present in network/interfaces for static IP definition
+}
+
+
+network={
+	ssid="<STA_SSID>"	
+	psk="<STA_PSK>"
+	proto=RSN
+        key_mgmt=WPA-PSK
+}
