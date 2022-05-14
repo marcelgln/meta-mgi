@@ -33,8 +33,8 @@ In client mode DHCP is used. When the client connection fails during boot, the a
 static IP address at 192.168.1.1 (configured in /etc/network/interfaces) and a DHCP server (dnsmasq)
 
 ## Known issues 
-This meta layer is far from complete, but it generates an image which can be flashed to and SD card and boots on an RPI Zero-W
-Normally Yocto created a symlink (without tiemstamp) to the last sdcard image build, this symlink is missing here.  
+This meta layer is far from complete, but it generates an image which can be flashed to and SD card and boots on an RPI Zero-W.
+Normally Yocto creates a symlink (without timestamp) to the last sdcard image build, this symlink is currently not created.  
 
 ## Next steps
 * Implement boot partition selection 
