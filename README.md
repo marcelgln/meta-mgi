@@ -4,7 +4,7 @@ This is Yocto meta layer intended for some Raspberry Pi projects. It is used on 
 
 ## Current functionality (wifi-image-base)
 *   WIFI client mode with fallback to an acces point during boot in case of failure
-*   u-boot boorloader
+*   u-boot bootloader
 *   Partition layout prepared for redundant kernel/rootfs which allows for complete filesystem update
     * Dual partition for kernel/device tree
     * Dual rootfs partition
