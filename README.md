@@ -1,6 +1,6 @@
 # meta-mgi
 
-This is Yocto meta layer intended for some Raspberry Pi projects. It is used on top of [meta-raspberrypi](https://github.com/agherzan/meta-raspberrypi)
+This is a Yocto meta layer intended for some Raspberry Pi projects. It is used on top of [meta-raspberrypi](https://github.com/agherzan/meta-raspberrypi)
 It first use will be for a headless [squeezelite](https://github.com/ralph-irving/squeezelite) using an RPI Zero-W on a custom baseboard (I do not like using a 'hat' for a small board). The baseboard does not include a power aamplifier, instead it has mains input and a switched mains output to control power of an external amplifier. The used DAC is a PCM5142 with (optional) a PLL1708 as clock source. 
 
 ## Current functionality (wifi-image-base)
