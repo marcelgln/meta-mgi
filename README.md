@@ -23,14 +23,15 @@ partition for this. Free space with a sector offset is enough for u-boot. It is 
 ## Usage notes 
 local.conf resides in: build-configs/rpi0w/conf  
 I usually create a symbolic link from the build directory to conf: 
-> conf -> ../meta-mgi/build-configs/rpi0w/conf
-build-configs/rpi0w/conf/bblayers.conf contains a variable BSPDIR which has to be adapted to your configuration. 
+> conf -> ../meta-mgi/build-configs/rpi0w/conf  
 
-## Access point falback
+The file 'build-configs/rpi0w/conf/bblayers.conf'  contains a variable BSPDIR which has to be adapted to your configuration. 
+
+## Access point fallback
 Most other solutions I have seen use hostapd for the access point and either rely heavily on Raspbian, or use 
 constructs where scripts are symlinked or rewritten during boot. Since this platform will be used for dedicated solutions with 
 reliability in mind, writing to sdcard is whereever possible minimized. The solution here does not used hostapd, but the 
-integrated accespoint from wpa_supplicant instead. No writes are performed to change from DHCP for client mode to static IP for AP mode. 
+integrated accespoint from wpa_supplicant instead. No card writes are performed when changing from STA to AP mode. 
 
 ## Network configuration
 local.conf includes a file 'credentials.inc' which is not included in this repository. 
@@ -55,6 +56,8 @@ At this moment the RPI fat32 boot partition is duplicated to both kernel partiti
 ## Next steps
 * Implement boot partition selection 
 * Move network configuration to persistent data partition, so it is not overwritten during filesystem updates.
+No idea when, free time is limited :-)
+
 
 
 
