@@ -18,19 +18,20 @@ Currently the rootfs partitions are not really large. For dedicated applications
 In a later stage, u-boot will be configured to store its environment as RAW on the SD-card. In practice it is not required to use a 
 partition for this. Free space with a sector offset is enough for u-boot. It is however convenient to be able to access it as an mtdblockpx device for accessing the environment from within Linux. The partitions for u-boot main/redundant are chosen to reside not in the same erase block of the card. This minimizes the risk that both get corrupted or erased.  
 
-## local.conf
+## Usage notes 
 local.conf resides in: build-configs/rpi0w/conf  
 I usually create a symbolic link from the build directory to conf: 
 > conf -> ../meta-mgi/build-configs/rpi0w/conf
+build-configs/rpi0w/conf/bblayers.conf contains a variable BSPDIR which has to be adapted to your configuration. 
 
 ## Access point falback
-Most other solutions I have seen use hostapd for the access point and either rely heavily on Raspian, or use 
+Most other solutions I have seen use hostapd for the access point and either rely heavily on Raspbian, or use 
 constructs where scripts are symlinked or rewritten during boot. Since this platform will be used for dedicated solutions with 
 reliability in mind, writing to sdcard is whereever possible minimized. The solution here does not used hostapd, but the 
-integrated accespoint from wpa_supplicant. No write are performed to change from DHCP for client mode to static IP for AP mode. 
+integrated accespoint from wpa_supplicant instead. No writes are performed to change from DHCP for client mode to static IP for AP mode. 
 
 ## Network configuration
-local.conf includes a file credentials.inc which is not included in this repository. 
+local.conf includes a file 'credentials.inc' which is not included in this repository. 
 credentials.inc must contain the following:
 > AP_SSID = "acces point SSID"
 
@@ -47,7 +48,7 @@ static IP address at 192.168.1.1 (configured in /etc/network/interfaces) and a D
 ## Known issues 
 This meta layer is far from complete, but it generates an image which can be flashed to and SD card and boots on an RPI Zero-W.
 Normally Yocto creates a symlink (without timestamp) to the last sdcard image build, this symlink is currently not created.  
-At this moment the RPI fat32 boot partition is duplicated to both kernel partitions (which are not used yet). This wil be change later  and the kernel partitions will be changed from Fat32 to ext4, since fat32 more sensitive for corruption. 
+At this moment the RPI fat32 boot partition is duplicated to both kernel partitions (which are not used yet). This wil be changed later and the kernel partitions will be changed from Fat32 to ext4, since fat32 more sensitive for corruption. 
 
 ## Next steps
 * Implement boot partition selection 
