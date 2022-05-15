@@ -14,7 +14,7 @@ Its first use will be for a headless [squeezelite](https://github.com/ralph-irvi
     * Dual partition for u-boot environment
 
 ## Partition layout
-Currently the rootfs partitions are not really large. For dedicated applications often a roots < 350MiB is more than sufficient. Size is however easy adaptable in the sdcard class. 
+Currently the rootfs partitions are not really large. For dedicated applications often a rootfs < 350MiB is more than sufficient. Size is however easy adaptable in the sdcard class. 
 In a later stage, u-boot will be configured to store its environment as RAW on the SD-card. In practice it is not required to use a 
 partition for this. Free space with a sector offset is enough for u-boot. It is however convenient to be able to access it as an mtdblockpx device for accessing the environment from within Linux. The partitions for u-boot main/redundant are chosen to reside not in the same erase block of the card. This minimizes the risk that both get corrupted or erased.  
 
